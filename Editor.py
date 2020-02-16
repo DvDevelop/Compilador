@@ -20,7 +20,7 @@ def save_as():
 gui = Tk()
 gui.title('DvD')
 gui.geometry("1000x1000")
-text = Text(gui, bg= "#252525", fg="#FFFFFF",width="170",heigh="170")
+text = Text(gui, bg= "#252525", fg="#FFFFFF",width="170",heigh="170",insertbackground='white')
 text .pack()
 mymenu = Menu()
 list1= Menu()
