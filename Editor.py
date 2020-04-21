@@ -3,18 +3,20 @@ import tkinter as tk
 from tkinter import filedialog
 def new_file():
     text.delete(0.0,END)
+    #need textbox
 def open_file():
     file1 = filedialog.askopenfile(mode='r')
     data = file1.read()
     text.delete(0.0,END)
     text.insert(0.0,data)
+    #need textbox
 def save_file():
-    filename="Untitled.txt"
+    filename="Untitled.txt"#get the current namefile and get the path
     data = text.get(0.0,END)
     file1=open(filename,"w")
     file1.write(data)
 def save_as():
-    file1 = filedialog.asksaveasfile(mode ='w')
+    file1 = filedialog.asksaveasfile(mode ='w') #return and save the current namefile and it's path
     data = text.get(0.0,END)
     file.write(data)
 
