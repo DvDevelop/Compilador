@@ -1,0 +1,208 @@
+{ -> especial 
+int -> PalabraReservada 
+x -> identificador 
+, -> coma 
+y -> identificador 
+, -> coma 
+z -> identificador 
+; -> punto y coma 
+++ -> operador 
+++ -> operador 
++ -> operador 
+-- -> operador 
+-- -> operador 
+- -> operador 
++ -> operador 
+- -> operador 
++ -> operador 
+- -> operador 
+real -> PalabraReservada 
+a -> identificador 
+, -> coma 
+b -> identificador 
+, -> coma 
+c -> identificador 
+; -> punto y coma 
+suma -> identificador 
+45 -> entero 
+; -> punto y coma 
+asdasd -> identificador 
+x -> identificador 
+:= -> asignacion 
+32.32 -> flotante 
+; -> punto y coma 
+x -> identificador 
+:= -> asignacion 
+23 -> entero 
+; -> punto y coma 
+y -> identificador 
+:= -> asignacion 
+2 -> entero 
++ -> operador 
+3 -> entero 
+- -> operador 
+1 -> entero 
+; -> punto y coma 
+z -> identificador 
+:= -> asignacion 
+y -> identificador 
++ -> operador 
+7 -> entero 
+; -> punto y coma 
+y -> identificador 
+:= -> asignacion 
+y -> identificador 
++ -> operador 
+1 -> entero 
+; -> punto y coma 
+a -> identificador 
+:= -> asignacion 
+24.0 -> flotante 
++ -> operador 
+4 -> entero 
+- -> operador 
+1 -> entero 
+/ -> operador 
+3 -> entero 
+* -> operador 
+2 -> entero 
++ -> operador 
+34 -> entero 
+- -> operador 
+1 -> entero 
+; -> punto y coma 
+x -> identificador 
+:= -> asignacion 
+( -> especial 
+5 -> entero 
+- -> operador 
+3 -> entero 
+) -> especial 
+* -> operador 
+( -> especial 
+8 -> entero 
+/ -> operador 
+2 -> entero 
+) -> especial 
+; -> punto y coma 
+y -> identificador 
+:= -> asignacion 
+5 -> entero 
++ -> operador 
+3 -> entero 
+- -> operador 
+2 -> entero 
+* -> operador 
+4 -> entero 
+/ -> operador 
+7 -> entero 
+- -> operador 
+9 -> entero 
+; -> punto y coma 
+z -> identificador 
+:= -> asignacion 
+8 -> entero 
+/ -> operador 
+2 -> entero 
++ -> operador 
+15 -> entero 
+* -> operador 
+4 -> entero 
+; -> punto y coma 
+y -> identificador 
+:= -> asignacion 
+14.54 -> flotante 
+; -> punto y coma 
+if -> PalabraReservada 
+( -> especial 
+2 -> entero 
+> -> operador 
+3 -> entero 
+) -> especial 
+then -> PalabraReservada 
+y -> identificador 
+a -> identificador 
++ -> operador 
+3 -> entero 
+; -> punto y coma 
+else -> PalabraReservada 
+if -> PalabraReservada 
+( -> especial 
+4 -> entero 
+> -> operador 
+2 -> entero 
+) -> especial 
+then -> PalabraReservada 
+b -> identificador 
+3.2 -> flotante 
+; -> punto y coma 
+else -> PalabraReservada 
+b -> identificador 
+5.0 -> flotante 
+; -> punto y coma 
+end -> PalabraReservada 
+; -> punto y coma 
+y -> identificador 
+y -> identificador 
++ -> operador 
+1 -> entero 
+; -> punto y coma 
+end -> PalabraReservada 
+; -> punto y coma 
+a -> identificador 
+++ -> operador 
+; -> punto y coma 
+c -> identificador 
+-- -> operador 
+; -> punto y coma 
+x -> identificador 
+3 -> entero 
++ -> operador 
+4 -> entero 
+; -> punto y coma 
+do -> PalabraReservada 
+y -> identificador 
+( -> especial 
+y -> identificador 
++ -> operador 
+1 -> entero 
+) -> especial 
+* -> operador 
+2 -> entero 
++ -> operador 
+1 -> entero 
+; -> punto y coma 
+while -> PalabraReservada 
+( -> especial 
+x -> identificador 
+> -> operador 
+7 -> entero 
+) -> especial 
+{ -> especial 
+x -> identificador 
+6 -> entero 
++ -> operador 
+8 -> entero 
+/ -> operador 
+9 -> entero 
+* -> operador 
+8 -> entero 
+/ -> operador 
+3 -> entero 
+; -> punto y coma 
+cin -> PalabraReservada 
+x -> identificador 
+; -> punto y coma 
+mas -> identificador 
+36 -> entero 
+/ -> operador 
+7 -> entero 
+; -> punto y coma 
+} -> especial 
+; -> punto y coma 
+} -> especial 
+asda -> identificador 
+a -> identificador 
+sda -> identificador 
+sdddddasdasd -> identificador 
+assss -> identificador 

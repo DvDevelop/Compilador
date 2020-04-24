@@ -3,8 +3,11 @@ import tkinter
 import tkinter.ttk as ttk
 from tkinter import messagebox
 from tkinter import filedialog
+from tkinter import  scrolledtext as st
 from time import sleep
+import subprocess
 
+    
 class initpage:
     #Constructor
     def __init__(self, parent):
@@ -12,6 +15,7 @@ class initpage:
         self.currentfile = "untitle"
         self.currentdir = "none"
         self.aux =0
+        
         #menubar
         self.menu = tkinter.Menu()
         self.file = tkinter.Menu(tearoff=0)
@@ -22,7 +26,7 @@ class initpage:
         self.file.add_command(label =  "Exit",command = parent.destroy)
         self.menu.add_cascade(label="file",menu=self.file)
         self.cd = tkinter.Menu(tearoff=0)
-        self.cd.add_command(label = "lexico")
+        self.cd.add_command(label = "lexico", command = self.hacer_click ) #,command = subprocess.call(["python", "script.py","Hola"]) 
         self.cd.add_command(label = "sintactico")
         self.cd.add_command(label = "semantico")
         self.cd.add_command(label = "compilar")
@@ -61,7 +65,7 @@ class initpage:
         self.btnsaveas.config(image = self.photo9 , compound = tkinter.LEFT)
         imagedir = dirname + "\\icos\\Negro\\lexico.png"
         self.photo4 = tkinter.PhotoImage(file = imagedir)
-        self.btnsave = tkinter.Button(self.bar)
+        self.btnsave = tkinter.Button(self.bar, command = self.hacer_click)
         self.btnsave.pack(side= tkinter.LEFT)
         self.btnsave.config(image = self.photo4 , compound = tkinter.LEFT)
         imagedir = dirname + "\\icos\\Negro\\sintactico.png"
@@ -101,7 +105,10 @@ class initpage:
         self.txt.config(yscrollcommand=self.updatescroll)
         self.txt2.config(yscrollcommand=self.updatescroll)
 ##        self.txt2['yscrollcommand'] = self.scrollb.set
-
+        
+        #Abrir archivos para imprimir frame derecho (tokens)
+        #archivo_token=open("token.txt","r")
+        #linesfilelist = archivo_token.readlines()
         #frame derecho
         self.divmr = tkinter.Frame(self.div)
         self.divmr.pack(fill=tkinter.BOTH)
@@ -110,36 +117,46 @@ class initpage:
         self.tabsr = ttk.Notebook(self.divmr)
         #tab1
         self.f1intab1 = tkinter.Frame(self.tabsr)
-        self.f1ttab1 = tkinter.Text(self.f1intab1)
+        self.f1ttab1 = st.ScrolledText(self.f1intab1)
+
+        #self.f1intab1 = ttk.Label(self.tabsr, text = linesfilelist)
+        #archivo_token.close()
+        
         self.f1ttab1.config(state= tkinter.DISABLED)
         self.f1ttab1.pack()
         #tab2
         self.f2intab1 = tkinter.Frame(self.tabsr)
-        self.f1ttab2 = tkinter.Text(self.f2intab1)
+        self.f1ttab2 = st.ScrolledText(self.f2intab1)
         self.f1ttab2.config(state= tkinter.DISABLED)
         self.f1ttab2.pack()
         #tab3
         self.f3intab1 = tkinter.Frame(self.tabsr)
-        self.f1ttab3 = tkinter.Text(self.f3intab1)
+        self.f1ttab3 = st.ScrolledText(self.f3intab1)
         self.f1ttab3.config(state= tkinter.DISABLED)
         self.f1ttab3.pack()
         #tab4
         self.f4intab1 = tkinter.Frame(self.tabsr)
-        self.f1ttab4 = tkinter.Text(self.f4intab1)
+        self.f1ttab4 = st.ScrolledText(self.f4intab1)
         self.f1ttab4.config(state= tkinter.DISABLED)
         self.f1ttab4.pack()
         #tab5
         self.f5intab1 = tkinter.Frame(self.tabsr)
-        self.f1ttab5 = tkinter.Text(self.f5intab1)
+        self.f1ttab5 = st.ScrolledText(self.f5intab1)
         self.f1ttab5.config(state= tkinter.DISABLED)
         self.f1ttab5.pack()
-        
-        self.tabsr.add(self.f1intab1, text='Lexico')
+
+       # self.lex_label = ttk.Label(self.tabsr, text = linesfilelist)
+ 
+        self.tabsr.add(self.f1intab1, text='Lexico')   
         self.tabsr.add(self.f2intab1, text='Sintactico')
         self.tabsr.add(self.f3intab1, text='Semantico')
         self.tabsr.add(self.f4intab1, text='Hash Table')
         self.tabsr.add(self.f5intab1, text='Codigo intermedio')
         self.tabsr.pack()
+        
+        #Abrir archivos para imprimir frame abajo (errores)
+        archivo_error=open("errores.txt","r")
+        linesfileliste = archivo_error.readlines()
         #frame bajo
         self.divmb =tkinter.Frame(parent)
         self.divmb.pack()
@@ -148,27 +165,31 @@ class initpage:
         self.tabsb = ttk.Notebook(self.divmb)
         #tab1
         self.f1intab2 = tkinter.Frame(self.tabsb)
-        self.f2ttab1 = tkinter.Text(self.f1intab2)
+        self.f2ttab1 = st.ScrolledText(self.f1intab2)
+
+        #self.f1intab2 = ttk.Label(self.tabsb, text = linesfileliste)  
+        #archivo_error.close()
+        
         self.f2ttab1.config(width=170, height=10)
         self.f2ttab1.config(state= tkinter.DISABLED)
         self.f2ttab1.pack()
         #tab2
         self.f2intab2 = tkinter.Frame(self.tabsb)
-        self.f2ttab2 = tkinter.Text(self.f2intab2)
+        self.f2ttab2 = st.ScrolledText(self.f2intab2)
         self.f2ttab2.pack()
         self.f2ttab2.config(width=170, height=10)
         self.f2ttab2.config(state= tkinter.DISABLED)
         self.f2ttab2.pack()
         #tab3
         self.f3intab2 = tkinter.Frame(self.tabsb)
-        self.f2ttab3 = tkinter.Text(self.f3intab2)
+        self.f2ttab3 = st.ScrolledText(self.f3intab2)
         self.f2ttab3.pack()
         self.f2ttab3.config(width=170, height=10)
         self.f2ttab3.config(state= tkinter.DISABLED)
         self.f2ttab3.pack()
         #tab4
         self.f4intab2 = tkinter.Frame(self.tabsb)
-        self.f2ttab4 = tkinter.Text(self.f4intab2)
+        self.f2ttab4 = st.ScrolledText(self.f4intab2)
         self.f2ttab4.pack()
         self.f2ttab4.config(width=170, height=10)
         self.f2ttab4.config(state= tkinter.DISABLED)
@@ -264,7 +285,29 @@ class initpage:
         for i in range(1,total+1):
                 self.txt.insert('end', str(i) +"\n")
         self.txt.config(state= tkinter.DISABLED)
+    def getlexico(self):
+        with open("token.txt", 'r') as file:
+            data = file.read()
+        with open("errores.txt","r") as file:
+            dataE = file.read()
+        self.f1ttab1.config(state= "normal")
+        self.f1ttab1.delete("1.0",tkinter.END)
+        self.f1ttab1.insert("1.0",data)
+        self.f1ttab1.config(state= tkinter.DISABLED)
+        self.f2ttab1.config(state = "normal")
+        self.f2ttab1.delete("1.0",tkinter.END)
+        self.f2ttab1.insert("1.0",dataE)
+        self.f2ttab1.config(state= tkinter.DISABLED)
+    def hacer_click(self):
+        #print("funciona")
+        self.save_file()
+        filedir = os.path.join(self.currentdir, self.currentfile)
+        
+        info = subprocess.call(["python", "lexico.py",filedir])  #,"Hola"
+        self.getlexico()
+    
 #main 
 main_window = tkinter.Tk()
 wdn=  initpage(main_window)
 main_window.mainloop()
+
